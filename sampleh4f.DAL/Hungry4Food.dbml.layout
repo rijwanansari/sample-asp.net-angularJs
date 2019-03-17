@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 9.5" name="Hungry4Food">
+  <DataContextMoniker Name="/Hungry4FoodDataContext" />
+  <nestedChildShapes>
+    <classShape Id="a760fac8-7f8c-4507-8677-4398f8212198" absoluteBounds="4.375, 2.125, 2, 7.1553369140625">
+      <DataClassMoniker Name="/Hungry4FoodDataContext/StoreInfo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4d1f260d-4718-4403-abc3-3a1926432822" absoluteBounds="4.39, 2.585, 1.9700000000000002, 6.5953369140625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cc892d13-840c-4faa-9d50-ca3ffb4b5cb4" absoluteBounds="7.625, 1.25, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/Hungry4FoodDataContext/DriverAssignment" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2b98af27-7d24-4f97-8a53-5f14e810fafb" absoluteBounds="7.64, 1.71, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6.375 : 2.86140055338542); (7.29166666666667 : 2.86140055338542 : JumpStart); (7.45833333333333 : 2.86140055338542 : JumpEnd); (7.625 : 2.86140055338542)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/Hungry4FoodDataContext/StoreInfo/StoreInfo_DriverAssignment" />
+      <nodes>
+        <classShapeMoniker Id="a760fac8-7f8c-4507-8677-4398f8212198" />
+        <classShapeMoniker Id="cc892d13-840c-4faa-9d50-ca3ffb4b5cb4" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="e400703a-7304-4916-ba60-776adc28dc8a" absoluteBounds="1.125, 1.125, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/Hungry4FoodDataContext/DriverSchedule" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bfeab5d4-ff3e-409d-afb7-5d60914e5349" absoluteBounds="1.1399999999999997, 1.585, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7.625 : 1.65625); (3.125 : 1.65625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/Hungry4FoodDataContext/DriverAssignment/DriverAssignment_DriverSchedule" />
+      <nodes>
+        <classShapeMoniker Id="cc892d13-840c-4faa-9d50-ca3ffb4b5cb4" />
+        <classShapeMoniker Id="e400703a-7304-4916-ba60-776adc28dc8a" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="0917be15-d274-4fce-8baa-99b7d5bdfd5e" absoluteBounds="7.125, 4.125, 2, 3.8862125651041666">
+      <DataClassMoniker Name="/Hungry4FoodDataContext/Employee" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5ec2815d-297b-4579-825b-a7aac9b236cf" absoluteBounds="7.14, 4.585, 1.9700000000000002, 3.3262125651041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.375 : 4.125); (8.375 : 3.59780110677083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/Hungry4FoodDataContext/Employee/Employee_DriverAssignment" />
+      <nodes>
+        <classShapeMoniker Id="0917be15-d274-4fce-8baa-99b7d5bdfd5e" />
+        <classShapeMoniker Id="cc892d13-840c-4faa-9d50-ca3ffb4b5cb4" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.375 : 6.06810628255208); (7.125 : 6.06810628255208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/Hungry4FoodDataContext/StoreInfo/StoreInfo_Employee" />
+      <nodes>
+        <classShapeMoniker Id="a760fac8-7f8c-4507-8677-4398f8212198" />
+        <classShapeMoniker Id="0917be15-d274-4fce-8baa-99b7d5bdfd5e" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="38cfed84-7489-49ff-8943-283dbebe1d66" absoluteBounds="1.5, 4.25, 2, 1.3862939453125">
+      <DataClassMoniker Name="/Hungry4FoodDataContext/EmployeeType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e4d91b56-b070-4b88-a901-7367fd60ab41" absoluteBounds="1.5150000000000001, 4.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.5 : 4.94314697265625); (4.125 : 4.94314697265625); (4.125 : 1.875); (7.375 : 1.875); (7.375 : 3.84780110677083); (8.125 : 3.84780110677083); (8.125 : 4.125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/Hungry4FoodDataContext/EmployeeType/EmployeeType_Employee" />
+      <nodes>
+        <classShapeMoniker Id="38cfed84-7489-49ff-8943-283dbebe1d66" />
+        <classShapeMoniker Id="0917be15-d274-4fce-8baa-99b7d5bdfd5e" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

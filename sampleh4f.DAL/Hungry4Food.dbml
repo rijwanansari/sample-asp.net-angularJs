@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="IndHungry4Food" Class="Hungry4FoodDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=RIJWANPC\SQLEXPRESS;Initial Catalog=IndHungry4Food;Integrated Security=True" SettingsObjectName="sampleh4f.DAL.My.MySettings" SettingsPropertyName="IndHungry4FoodConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.StoreInfo" Member="StoreInfos">
+    <Type Name="StoreInfo">
+      <Column Name="StoreID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BusinessName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="StoreName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="StoreLogoImage" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="StoreStrtAdd" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="StorePh" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="StoreCity" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="StoreState" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="StoreZipCd" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+      <Column Name="Fax" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Rating" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Reviews" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="TimeZone_Offset" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="IsOnlineOrder" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="IsDelivery" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="DeliveryDistance" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="DlvryRate" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DlvryMinOrderAmt" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="DlvryEstTime" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="CouponCnt" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CashCouponPercent" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="CashCouponInfo" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Cuisines" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="PriceRating" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Active_Ind" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="PopularDishes" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="MoreInfomation" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="SMS" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="FaxUserID" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FaxPassword" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="HasIndividualWebsite" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IndividualWebsite" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Association Name="StoreInfo_DriverAssignment" Member="DriverAssignments" ThisKey="StoreID" OtherKey="StoreID" Type="DriverAssignment" />
+      <Association Name="StoreInfo_Employee" Member="Employees" ThisKey="StoreID" OtherKey="StoreID" Type="Employee" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DriverAssignment" Member="DriverAssignments">
+    <Type Name="DriverAssignment">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SalesId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="StoreID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Created" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Modified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="DriverAssignment_DriverSchedule" Member="DriverSchedules" ThisKey="Id" OtherKey="DriverAssignID" Type="DriverSchedule" />
+      <Association Name="StoreInfo_DriverAssignment" Member="StoreInfo" ThisKey="StoreID" OtherKey="StoreID" Type="StoreInfo" IsForeignKey="true" />
+      <Association Name="Employee_DriverAssignment" Member="Employee" ThisKey="SalesId" OtherKey="SalesId" Type="Employee" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DriverSchedule" Member="DriverSchedules">
+    <Type Name="DriverSchedule">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DriverAssignID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Day" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="StartTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EndTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Created" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Modified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="DriverAssignment_DriverSchedule" Member="DriverAssignment" ThisKey="DriverAssignID" OtherKey="Id" Type="DriverAssignment" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Employee" Member="Employees">
+    <Type Name="Employee">
+      <Column Name="SalesId" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MiddleName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="StreetAdd" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="State" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ZipCode" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+      <Column Name="Ph" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Ssn" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+      <Column Name="DrvPass" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PnchInPwd" Type="System.String" DbType="VarChar(16)" CanBeNull="true" />
+      <Column Name="EmployeeTypeId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="StoreID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Employee_DriverAssignment" Member="DriverAssignments" ThisKey="SalesId" OtherKey="SalesId" Type="DriverAssignment" />
+      <Association Name="StoreInfo_Employee" Member="StoreInfo" ThisKey="StoreID" OtherKey="StoreID" Type="StoreInfo" IsForeignKey="true" />
+      <Association Name="EmployeeType_Employee" Member="EmployeeType" ThisKey="EmployeeTypeId" OtherKey="Id" Type="EmployeeType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EmployeeType" Member="EmployeeTypes">
+    <Type Name="EmployeeType">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="EmployeeType_Employee" Member="Employees" ThisKey="Id" OtherKey="EmployeeTypeId" Type="Employee" />
+    </Type>
+  </Table>
+</Database>
